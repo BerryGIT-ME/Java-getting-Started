@@ -5,6 +5,21 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class LeetCode {
+    public void stringPermutation(String str){
+        String base = "";
+        permutation(base, str);
+    }
+    private static void permutation(String base, String str) {
+        if (str.isEmpty()) {
+            System.err.println(base);
+        } else {
+            for (int i = 0; i < str.length(); i++) {
+                base += str.charAt(i);
+                str = str.substring(0, i) + str.substring(i + 1);
+                permutation(base, str);
+            }
+        }
+    }
 
     public boolean isValid(String s) {
         ArrayList<Character> list = new ArrayList<>();

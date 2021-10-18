@@ -7,7 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
         LeetCode code = new LeetCode();
-        String input = "(])";
-        System.out.println(code.isValid(input));
+        code.stringPermutation("1234");
     }
 }
