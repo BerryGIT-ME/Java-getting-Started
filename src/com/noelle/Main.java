@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         LeetCode code = new LeetCode();
-        String[] input = {"flower","flow","Aoght"};
-        System.out.println(code.longestCommonPrefix(input));
+        String input = "(])";
+        System.out.println(code.isValid(input));
     }
 }

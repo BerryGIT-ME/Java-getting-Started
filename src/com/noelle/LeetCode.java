@@ -1,11 +1,44 @@
 package com.noelle;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
 public class LeetCode {
 
+    public boolean isValid(String s) {
+        ArrayList<Character> list = new ArrayList<>();
+        char[] str = s.toCharArray();
+        int pointer = 0;
+        boolean terminated = false;
+        for(char ch : str){
+            if(ch == '(' || ch == '{' || ch == '[') {
+                list.add(ch);
+                pointer++;
+            }
+            else{
+                if(pointer == 0) {
+                    terminated = true;
+                    break;
+                }
+                char opener = list.get(pointer - 1);
+                if((ch == ')' && opener == '(') ||
+                        (ch == '}' && opener == '{')||
+                        (ch == ']' && opener == '[')){
+                    pointer--;
+                    list.remove(pointer);
+                } else {
+                    terminated = true;
+                    break;
+                }
+            }
+        }
+
+        return !terminated && pointer == 0;
+    }
+
     public String longestCommonPrefix(String[] strs){
+
         char[] prefix = strs[0].toCharArray();
         int pointer = prefix.length;
 
