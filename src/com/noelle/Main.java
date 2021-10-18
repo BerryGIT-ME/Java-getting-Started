@@ -7,6 +7,6 @@ public class Main {
 
     public static void main(String[] args) {
         LeetCode code = new LeetCode();
-        code.stringPermutation("1234");
+        System.out.println(code.fibonacci(5));
     }
 }

@@ -5,6 +5,12 @@ import java.util.Arrays;
 import java.util.HashMap;
 
 public class LeetCode {
+
+    public long fibonacci(int nth){
+        if(nth == 1) return 1;
+        if(nth == 0) return 0;
+        return fibonacci(nth - 1) + fibonacci(nth - 2);
+    }
     public void stringPermutation(String str){
         String base = "";
         permutation(base, str);
