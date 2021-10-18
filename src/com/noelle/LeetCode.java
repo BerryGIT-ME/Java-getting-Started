@@ -4,6 +4,32 @@ import java.util.HashMap;
 
 public class LeetCode {
 
+    public int romanToInt(String s){
+        HashMap<Character, Integer> roman = new HashMap<>();
+        roman.put('I', 1);
+        roman.put('V', 5);
+        roman.put('X', 10);
+        roman.put('L', 50);
+        roman.put('C', 100);
+        roman.put('D', 500);
+        roman.put('M', 1000);
+
+        String S = s.toUpperCase();
+
+        int sum = 0;
+        int i = 0;
+        while(i < S.length()){
+            char currentChar = S.charAt(i);
+            char nextChar = i == (S.length() - 1) ? S.charAt(i) : S.charAt(i + 1);
+            int currentValue = roman.get(currentChar);
+            int nextValue = roman.get(nextChar);
+            if(currentValue < nextValue) sum -= currentValue;
+            else sum += currentValue;
+            i++;
+        }
+        return sum;
+    }
+
     public boolean isPalindrome(int x){
         String str = Integer.toString(x);
         int start = 0;
