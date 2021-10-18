@@ -1,8 +1,28 @@
 package com.noelle;
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class LeetCode {
+
+    public String longestCommonPrefix(String[] strs){
+        char[] prefix = strs[0].toCharArray();
+        int pointer = prefix.length;
+
+        for (String str : strs) {
+            char[] current = str.toCharArray();
+            int tempPointer = 0;
+            while(tempPointer < pointer && tempPointer < current.length){
+                if(prefix[tempPointer] != current[tempPointer]) break;
+                tempPointer++;
+            }
+            pointer = tempPointer;
+
+            if(pointer == 0) break;
+        }
+
+       return pointer == 0 ? "" : String.copyValueOf(prefix, 0, pointer);
+    }
 
     public int romanToInt(String s){
         HashMap<Character, Integer> roman = new HashMap<>();

@@ -1,13 +1,13 @@
 package com.noelle;
 
-import java.util.HashMap;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main {
 
     public static void main(String[] args) {
         LeetCode code = new LeetCode();
-        String text = "iX";
-        System.out.println(code.romanToInt(text));
+        String[] input = {"flower","flow","Aoght"};
+        System.out.println(code.longestCommonPrefix(input));
     }
 }
